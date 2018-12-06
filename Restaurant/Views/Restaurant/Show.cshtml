@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+<h1>Restaurant Details</h1>
+    <h3>Name: @Model.GetName()</h3>
+     <h3>Description: @Model.GetDescription()</h3>
+      <h3>Location: @Model.GetLocation()</h3>
+       <h3>Cuisine Type: @Model.GetCuisineType()</h3>
+    <br>
+    <h3><a href="/restaurants">Back to Restaurants List</a></h3>
+</div>

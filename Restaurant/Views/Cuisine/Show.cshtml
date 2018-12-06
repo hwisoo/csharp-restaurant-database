@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+<h3>Here are all the restaurants for this cuisine:</h3>
+@if (@Model["restaurants"].Count == 0)
+{
+  <h3>No restaurants have been found for this cuisine!</h3>
+}
+
+<ol>
+@foreach (var restaurant in @Model["restaurants"])
+{
+  <li><a href='/restaurants/@restaurant.GetId()'>@restaurant.GetName()</a>
+    <ul>
+        <li>@restaurant.GetDescription()</li>
+        <li>@restaurant.GetLocation()</li>
+    </ul>
+  </li>
+}
+</ol>
+
+<h3><a href = "/cuisines">Return to Cuisines List</a></h3>
