@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Restaurant.Controllers;
-using Restaurant.Models;
+using RestaurantApp.Controllers;
+using RestaurantApp.Models;
 
-namespace Restaurant.Tests
+namespace RestaurantApp.Tests
 {
     [TestClass]
     public class HomeControllerTest

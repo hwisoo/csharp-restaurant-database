@@ -46,19 +46,19 @@ namespace RestaurantApp.Models
       return _id;
     }
 
-    // public static void ClearAll()
-    // {
-    //   MySqlConnection conn = DB.Connection();
-    //   conn.Open();
-    //   var cmd = conn.CreateCommand() as MySqlCommand;
-    //   cmd.CommandText = @"DELETE FROM categories;";
-    //   cmd.ExecuteNonQuery();
-    //   conn.Close();
-    //   if (conn != null)
-    //   {
-    //     conn.Dispose();
-    //   }
-    // }
+    public static void ClearAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM restaurant;";
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
 
     public static List<Restaurant> GetAll()
     {
@@ -119,20 +119,23 @@ namespace RestaurantApp.Models
       return newRestaurant;
     }
 
-    // public override bool Equals(System.Object otherCategory)
-    // {
-    //   if (!(otherCategory is Category))
-    //   {
-    //     return false;
-    //   }
-    //   else
-    //   {
-    //     Category newCategory = (Category) otherCategory;
-    //     bool idEquality = this.GetId().Equals(newCategory.GetId());
-    //     bool nameEquality = this.GetName().Equals(newCategory.GetName());
-    //     return (idEquality && nameEquality);
-    //   }
-    // }
+    public override bool Equals(System.Object otherRestaurant)
+    {
+      if (!(otherRestaurant is Restaurant))
+      {
+        return false;
+      }
+      else
+      {
+        Restaurant newRestaurant = (Restaurant) otherRestaurant;
+        bool idEquality = this.GetId().Equals(newRestaurant.GetId());
+        bool nameEquality = this.GetName().Equals(newRestaurant.GetName());
+        bool descriptionEquality = this.GetDescription().Equals(newRestaurant.GetDescription());
+        bool locationEquality = this.GetLocation().Equals(newRestaurant.GetLocation());
+        bool cuisineTypeEquality = this.GetCuisineType().Equals(newRestaurant.GetCuisineType());
+        return (idEquality && nameEquality && descriptionEquality && locationEquality && cuisineTypeEquality);
+      }
+    }
 
     public void Save()
     {
